@@ -7,10 +7,10 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease 0.3s;
-}
-.btn:hover {
+  &:hover {
   color: white;
   background-color: black;
+}
 }
 
 #container {
