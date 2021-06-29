@@ -19,7 +19,11 @@ img {
   }
   &.inview {
     &::after {
-      @include animation($name: kf-cover-slide, $duration: 1.6s, $timing-function: ease-in-out);
+      @include animation(
+        $name: kf-cover-slide,
+        $duration: 1.6s,
+        $timing-function: ease-in-out
+      );
     }
   }
 }
@@ -40,10 +44,20 @@ img {
 }
 
 .img-zoom {
-  opacity: 0;
+  opacity: 1;
   .inview & {
     opacity: 1;
-    @include animation($name: kf-img-show, $duration: 1.6s, $timing-function: ease-in-out);
+    transition: transform 0.3s ease;
+    @include animation(
+      $name: kf-img-show,
+      $duration: 1.6s,
+      $timing-function: ease-in-out,
+      $fill-mode: normal
+    );
+
+    &:hover {
+      transform: scale(1.3);
+    }
   }
 }
 
@@ -60,5 +74,28 @@ img {
   }
   100% {
     opacity: 1;
+  }
+}
+
+.hover-darken {
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    transition: background-color ease-in-out;
+    pointer-events: none;
+    @include animation(
+      $name: kf-img-show,
+      $duration: 1.6s,
+      $timing-function: ease-in-out,
+      $fill-mode: normal
+    );
+  }
+  &:hover::before {
+    background-color: rgba(0, 0, 0, 0.4);
   }
 }
