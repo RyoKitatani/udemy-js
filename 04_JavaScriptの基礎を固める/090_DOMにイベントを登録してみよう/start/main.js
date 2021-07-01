@@ -10,6 +10,8 @@ function changeBgColor(){
 ;}
 btn.addEventListener('click', changeColor)
 btn.addEventListener('click', changeBgColor)
+
+
 // btn.removeEventListener('click', hello)
 
 //上記の方法で記述がおすすめ
