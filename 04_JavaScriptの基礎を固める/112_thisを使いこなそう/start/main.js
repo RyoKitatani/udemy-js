@@ -1,12 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const btn = document.querySelector('#btn');
     const ta = new TextAnimation('.animate-title');
     const ta2 = new TextAnimation('.animate-title-2');
     ta.animate();
     ta2.animate();
+    btn.addEventListener('click', function(){
+        ta.animate();
+    });
 });
 
 class TextAnimation {
     constructor(el) {
+        console.log(this)
         this.el = document.querySelector(el);
         this.chars = this.el.innerHTML.trim().split("");
         this.el.innerHTML = this._splitText();
@@ -18,6 +23,6 @@ class TextAnimation {
         }, "");
     }
     animate() {
-        this.el.classList.toggle('inview');
+    this.el.classList.toggle('inview');
     }
 }
