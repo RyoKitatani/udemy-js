@@ -1,5 +1,5 @@
 .swiper-container {
-  // overflow: visible !important;
+  overflow: visible !important;
 }
 
 .swiper-slide {
@@ -14,6 +14,7 @@
     transform: scale(1.3);
     transition: transform 1.9s ease;
   }
+
   &::after {
     content: "";
     position: absolute;
@@ -38,7 +39,9 @@
 
 .hero {
   overflow: hidden;
-
+  padding-top: $navHeight;
+  @extend .pb-lg;
+  
   &__title {
     position: absolute;
     top: 50%;
@@ -48,7 +51,7 @@
     font-size: 25px;
     z-index: 2;
     opacity: 0;
-    transition: opacity 0.2s ease 1s, transform 0.2s ease 1s;
+    transition: opacity 0.3s ease 1s, transform 0.3s ease 1s;
   }
 
   &__footer {
@@ -71,7 +74,7 @@
       $name: kf-arrow-anime,
       $iteration-count: infinite,
       $duration: 2s,
-      $timing-function: liner
+      $timing-function: linear
     );
   }
 
@@ -86,14 +89,12 @@
 }
 
 @keyframes kf-arrow-anime {
-  0% {
+  0%,
+  50%,
+  100% {
     transform: translateY(-10%);
   }
   30% {
     transform: none;
-  }
-  50%,
-  100% {
-    transform: translateY(-10%);
   }
 }
